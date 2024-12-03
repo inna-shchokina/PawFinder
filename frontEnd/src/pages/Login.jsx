@@ -81,7 +81,7 @@ function Login() {
         </button>
         <h3 className="text-[1.4rem]">
           Not a member yet?{" "}
-          <Link to="/Sign up" className="font-semibold">
+          <Link to="/register" className="font-semibold">
             Sign up
           </Link>
         </h3>
