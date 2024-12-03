@@ -1,4 +1,4 @@
-import { OpenAI } from 'openai';
+import { OpenAI } from 'openai/index.js';
 import { encode } from 'gpt-tokenizer';
 import Pet from '../models/petsModel.js';
 import User from '../models/usersModel.js';
