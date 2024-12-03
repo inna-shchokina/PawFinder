@@ -2,6 +2,7 @@
   command = "npm install"
   functions = "netlify/functions"
   publish = "public"
+  base = "backend" 
 
 [functions]
   external_node_modules = ["express"]
@@ -14,4 +15,4 @@
 
 [dev]
   command = "npm run dev"
-  port = 1337
+  port = 1337 
