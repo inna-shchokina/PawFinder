@@ -1,6 +1,6 @@
 import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
-import User from '../models/UsersModel.js';
+import User from '../models/usersModel.js';
 
 const initializePassport = () => {
   passport.use(
@@ -17,8 +17,9 @@ const initializePassport = () => {
           if (!user) {
             user = await User.create({
               googleId: profile.id,
-              name: profile.displayName,
+              fullName: profile.displayName,
               email: profile.emails[0].value,
+              userType: 'user'
             });
           }
 

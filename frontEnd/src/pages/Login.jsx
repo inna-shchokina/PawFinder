@@ -1,9 +1,10 @@
-import { useReducer, useState } from "react";
+import { useEffect, useReducer } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-import axios from "axios";
+import { useUserAuth } from "../contexts/UserAuthContext";
+import { ToastContainer } from "react-toastify";
 
-const initialState = { email: "", password: "" };
+const localInitialState = { email: "", password: "" };
 function reducer(state, action) {
   switch (action.type) {
     case "setEmail":
@@ -15,33 +16,32 @@ function reducer(state, action) {
   }
 }
 function Login() {
-  const [{ email, password }, dispatch] = useReducer(reducer, initialState);
-  const [user, setUser] = useState(null);
+  const [{ email, password }, localDispatch] = useReducer(
+    reducer,
+    localInitialState
+  );
+  const { isAuthenticated, handleLogin } = useUserAuth();
   const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
-    try {
-      const res = await axios.post(`http://localhost:8000/api/auth/login`, {
-        email,
-        password,
-      });
-      const userLoggedIn = res.data.user;
-      setUser(userLoggedIn);
-    } catch (error) {
-      alert("🛑EMAIL OR PASSWORD IS INCORRECT🛑");
-    } finally {
-      navigate("/");
-    }
+    await handleLogin(email, password);
   }
-  function handleGoogleLogin() {}
+  useEffect(
+    function () {
+      if (isAuthenticated) navigate("/");
+    },
+    [isAuthenticated, navigate]
+  );
 
   return (
     <main>
-      <div className="bg-light w-[40%] my-[10rem] mx-auto p-[8rem] flex flex-col gap-[5rem] items-center rounded-[10rem] shadow-2xl">
-        <h2 className="text-[2.4rem] font-bold">Create your account</h2>
+      <div className="bg-light w-[80%] md:w-[50%] my-[10rem] mx-auto p-[8rem] flex flex-col gap-[5rem] items-center rounded-[10rem] shadow-2xl">
+        <h2 className="text-[2.4rem] font-bold">
+          Please enter your credentials
+        </h2>
         <form
-          className="registerForm flex flex-col gap-[5rem] w-[50%] mx-auto text-[1.6rem]"
+          className="registerForm flex flex-col gap-[5rem] w-[70%] mx-auto text-[1.6rem]"
           onSubmit={handleSubmit}
         >
           <input
@@ -50,7 +50,7 @@ function Login() {
             placeholder="Email"
             value={email}
             onChange={(e) =>
-              dispatch({ type: "setEmail", payload: e.target.value })
+              localDispatch({ type: "setEmail", payload: e.target.value })
             }
             required
           />
@@ -60,7 +60,7 @@ function Login() {
             placeholder="Password"
             value={password}
             onChange={(e) =>
-              dispatch({ type: "setPassword", payload: e.target.value })
+              localDispatch({ type: "setPassword", payload: e.target.value })
             }
             required
           />
@@ -73,22 +73,20 @@ function Login() {
           </button>
         </form>
         <h2 className="text-[2.4rem] font-bold">Or</h2>
-        <button
-          className="btn flex items-center gap-[1rem] bg-white py-[1rem] px-[2rem] text-[1.6rem] rounded-[1.5rem] hover:bg-light hover:border-2 hover:border-dark"
-          onClick={handleGoogleLogin}
-        >
+        <button className="btn flex items-center gap-[1rem] bg-white py-[1rem] px-[2rem] text-[1.6rem] rounded-[1.5rem] hover:bg-light hover:border-2 hover:border-dark">
           <span>
             <FcGoogle className="text-[2.4rem]" />
           </span>
           <span>Sign up with Google</span>
         </button>
         <h3 className="text-[1.4rem]">
-          Not a member yet?
-          <Link to="/Sign up" className="font-semibold">
-            Login
+          Not a member yet?{" "}
+          <Link to="/register" className="font-semibold">
+            Sign up
           </Link>
         </h3>
       </div>
+      <ToastContainer className="text-[1.4rem] w-[30%]" />
     </main>
   );
 }

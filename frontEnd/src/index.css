@@ -1,8 +1,28 @@
+@import url("https://unpkg.com/leaflet@1.9.4/dist/leaflet.css");
+@import url("react-toastify/dist/ReactToastify.css");
+@import url("animate.css/animate.compat.css");
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@keyframes comesLeft {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  70% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 html {
   font-family: "Poppins", sans-serif;
   font-size: 62.5%;
@@ -26,6 +46,7 @@ html {
 
 body {
   color: #071327;
+  background-color: #fafaf5;
 }
 
 .header a,
@@ -38,20 +59,47 @@ body {
   color: #bfcf59;
 }
 
+.navbar-list li a.active {
+  color: #bfcf59;
+}
+
 .signup:hover {
   background-color: #bfcf59;
   color: #071327;
+}
+
+.chosePetSection a img {
+  transition: all 0.7s;
+}
+.chosePetSection a img:hover {
+  transform: scale(0.9);
+  box-shadow: 0.5rem 2rem 10rem rgba(0, 0, 0, 0.4);
 }
 
 .footer-icon {
   transition: all 0.3s;
 }
 
-.registerForm input:focus {
+.aboutSection {
+  animation-name: comesLeft;
+  animation-timing-function: ease-in;
+  animation-duration: 1.5s;
+}
+
+.registerForm input:focus,
+.questionareForm input:focus,
+.questionareForm select:focus {
   outline: none;
   border-bottom-color: #ed6656;
 }
-
+.queContainer {
+  overflow: scroll;
+  height: 80vh;
+  box-shadow: 5rem 5rem 100rem rgba(0, 0, 0, 0.3);
+}
+.sectionBlur {
+  filter: blur(5px);
+}
 .gifContainer {
   background-size: cover;
   background-position: center;
@@ -82,4 +130,42 @@ body {
 }
 .gifContainer6 {
   background-image: url("../gifs/really-are-you-sure.gif");
+}
+
+.sheltersList {
+  height: 55rem;
+  overflow: scroll;
+}
+
+.shelterInfo {
+  background-color: #e7e7d6;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.shelterInfo.active {
+  background-color: #8d9e29;
+  color: white;
+}
+
+.shelterInfo.active a {
+  border-color: white;
+}
+.shelterInfo:hover {
+  background-color: #8d9e29;
+  color: white;
+}
+.shelterInfo:hover a {
+  border-color: white;
+}
+.leaflet-popup-tip {
+  background-color: #e7e7d6;
+}
+.leaflet-popup .leaflet-popup-content-wrapper {
+  background-color: #e7e7d6;
+  width: fit-content;
+}
+.leaflet-popup .leaflet-popup-content-wrapper .leaflet-popup-content {
+  width: fit-content;
+  font-size: 1.4rem;
 }

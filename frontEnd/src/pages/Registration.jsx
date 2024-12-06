@@ -3,6 +3,7 @@ import { useReducer } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
 const initialState = {
   fullName: "",
@@ -31,6 +32,35 @@ function Registration() {
 
   async function registerUserToDataBase(user) {
     try {
+      await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/auth/register`,
+        user
+      );
+      // console.log("user is in the data base");
+      toast.success("Wow you are a paw finder!", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+        theme: "colored",
+      });
+      setTimeout(() => navigate("/login"), 2000);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const newUser = { fullName, email, password, userType: "individual" };
+    registerUserToDataBase(newUser);
+  }
+
+  /*   async function registerUserToDataBase(user) {
+    try {
       await axios.post(`http://localhost:8000/api/auth/register`, user);
       console.log("user is in the data base");
     } catch (error) {
@@ -42,9 +72,9 @@ function Registration() {
     const newUser = { fullName, email, password, userType: "individual" };
     registerUserToDataBase(newUser);
     navigate("/");
-  }
+  } */
 
-/*   const handleGoogleSignUp = async () => {
+  /*   const handleGoogleSignUp = async () => {
     try {
       await axios.get("http://localhost:8000/api/auth/google/callback");
     } catch (error) {
@@ -59,10 +89,10 @@ function Registration() {
 
   return (
     <main>
-      <div className="bg-light w-[40%] my-[10rem] mx-auto p-[8rem] flex flex-col gap-[5rem] items-center rounded-[10rem] shadow-2xl">
+      <div className="bg-light  w-[80%] md:w-[50%] my-[10rem] mx-auto p-[8rem] flex flex-col gap-[5rem] items-center rounded-[10rem] shadow-2xl">
         <h2 className="text-[2.4rem] font-bold">Create your account</h2>
         <form
-          className="registerForm flex flex-col gap-[5rem] w-[50%] mx-auto text-[1.6rem]"
+          className="registerForm flex flex-col gap-[5rem] w-[70%] mx-auto text-[1.6rem]"
           onSubmit={handleSubmit}
         >
           <input
@@ -121,6 +151,7 @@ function Registration() {
           </Link>
         </h3>
       </div>
+      <ToastContainer className="text-[1.4rem]" />
     </main>
   );
 }

@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 
-function Hero() {
+function Hero({ blur }) {
   return (
-    <section className="relative heroSection my-[5rem]">
+    <section
+      className={`${blur ? "sectionBlur" : ""} relative heroSection my-[5rem]`}
+    >
       <div className="heroSection-text flex flex-col gap-[3rem] w-[10%] mx-auto justify-between items-center">
         <figure>
           <img
@@ -11,19 +13,22 @@ function Hero() {
             alt="Cat Paw"
           />
         </figure>
-        <h1 className="text-dark text-[7.5rem] md:text-[9rem] font-black text-center uppercase leading-tight">
+        <h1 className="text-dark text-[7rem] md:text-[9rem] font-black text-center uppercase leading-tight">
           Find Your Friend
         </h1>
-        <Link className="btn bg-green text-white text-[1.8rem] px-[4rem] py-[1rem] w-[20rem] rounded-[5rem] hover:text-green hover:bg-dark text-center">
+        <Link
+          to="/pets"
+          className="btn bg-green text-white text-[1.8rem] px-[4rem] py-[1rem] w-[20rem] rounded-[5rem] hover:text-green hover:bg-dark text-center"
+        >
           Get Started
         </Link>
       </div>
-      <div className="gifContainer gifContainer1 w-[11rem] h-[13rem] lg:w-[13rem] lg:h-[15rem] left-[15%] md:left-[20%]  2xl:left-[35%] top-0"></div>
-      <div className="gifContainer gifContainer2 w-[11rem] h-[13rem] lg:w-[13rem] lg:h-[15rem] left-[5%] md:left-[15%] 2xl:left-[30%] top-[35%]"></div>
-      <div className="gifContainer gifContainer3 w-[11rem] h-[13rem] lg:w-[13rem] lg:h-[15rem] left-[15%] md:left-[20%]  2xl:left-[35%]  bottom-0"></div>
-      <div className="gifContainer gifContainer4 w-[11rem] h-[13rem] lg:w-[13rem] lg:h-[15rem] right-[15%] md:right-[20%] 2xl:right-[35%] top-0"></div>
-      <div className="gifContainer gifContainer5 w-[11rem] h-[13rem] lg:w-[13rem] lg:h-[15rem] right-[5%] md:right-[15%] 2xl:right-[30%] top-[35%]"></div>
-      <div className="gifContainer gifContainer6 w-[11rem] h-[13rem] lg:w-[13rem] lg:h-[15rem] right-[15%] md:right-[20%] 2xl:right-[35%] bottom-0"></div>
+      <div className="gifContainer gifContainer1 w-[11rem] h-[13rem] lg:w-[13rem] lg:h-[15rem] left-[15%] md:left-[20%]  2xl:left-[25%] top-0"></div>
+      <div className="gifContainer gifContainer2 w-[11rem] h-[13rem] lg:w-[13rem] lg:h-[15rem] left-[5%] md:left-[15%] 2xl:left-[20%] top-[35%]"></div>
+      <div className="gifContainer gifContainer3 w-[11rem] h-[13rem] lg:w-[13rem] lg:h-[15rem] left-[15%] md:left-[20%]  2xl:left-[25%]  bottom-0"></div>
+      <div className="gifContainer gifContainer4 w-[11rem] h-[13rem] lg:w-[13rem] lg:h-[15rem] right-[15%] md:right-[20%] 2xl:right-[25%] top-0"></div>
+      <div className="gifContainer gifContainer5 w-[11rem] h-[13rem] lg:w-[13rem] lg:h-[15rem] right-[5%] md:right-[15%] 2xl:right-[20%] top-[35%]"></div>
+      <div className="gifContainer gifContainer6 w-[11rem] h-[13rem] lg:w-[13rem] lg:h-[15rem] right-[15%] md:right-[20%] 2xl:right-[25%] bottom-0"></div>
     </section>
   );
 }

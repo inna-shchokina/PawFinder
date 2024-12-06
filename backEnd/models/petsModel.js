@@ -6,6 +6,10 @@ const petSchema = new mongoose.Schema({
     ref: 'Shelter',
     required: true
   },
+  name: {
+    type: String,
+    required: true
+  },
   animalType: {
     type: String,
     enum: ['cat', 'dog'],
@@ -16,7 +20,7 @@ const petSchema = new mongoose.Schema({
     required: true
   },
   age: {
-    type: Number,
+    type: Date,
     required: true
   },
   gender: {
@@ -25,6 +29,10 @@ const petSchema = new mongoose.Schema({
     required: true
   },
   description: {
+    type: String,
+    required: true
+  },
+  petStory: {
     type: String,
     required: true
   },
@@ -92,11 +100,12 @@ const petSchema = new mongoose.Schema({
   healthConditions: {
     type: [String],
     required: function() { return this.specialNeeds === true; }
-  },
+  }
 }, {
   collection: 'Pets',
   versionKey: false,
   timestamps: true
 });
 
-export default mongoose.model('Pet', petSchema);
+const Pet = mongoose.model('Pet', petSchema);
+export default Pet;

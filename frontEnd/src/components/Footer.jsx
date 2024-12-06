@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaInstagram, FaFacebookF } from "react-icons/fa";
 function Footer() {
   return (
@@ -11,16 +11,16 @@ function Footer() {
       <nav className="navbar text-[1.6rem] font-semibold text-white">
         <ul className="navbar-list flex justify-between  gap-[3.5rem]">
           <li>
-            <Link to="/about">About us</Link>
+            <NavLink to="/about">About us</NavLink>
           </li>
           <li>
-            <Link to="">Find a pet</Link>
+            <NavLink to="/pets">Find a pet</NavLink>
           </li>
           <li>
-            <Link to="">Get involved</Link>
+            <NavLink to="/shelters">Partners</NavLink>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <NavLink to="/contact">Contact</NavLink>
           </li>
         </ul>
       </nav>

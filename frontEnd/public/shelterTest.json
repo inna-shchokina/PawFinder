@@ -1,0 +1,15 @@
+{
+  "email": "thl@stuttgart-tierheim.de",
+  "password": "dogcats012",
+  "contactPerson": "Marion Wünn",
+  "companyName": "Tierschutzverein Stuttgart",
+  "registrationNumber": "23042024",
+  "userType": "shelter",
+  "address": "Animal Welfare Association Stuttgart and Surrounding Areas eV Furtwänglerstraße 150 * 70195 Stuttgart-Botnang",
+  "phone": "07116567740",
+  "capacity": 18,
+  "website": "https://stuttgarter-tierschutz.de/",
+  "availablePets": [],
+  "description": "Loving animal shelter based in Stuttgart",
+  "companyImage": ""
+}

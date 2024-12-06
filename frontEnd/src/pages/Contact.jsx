@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import GetInTouchSection from "../components/GetInTouchSection";
-import SendMessageAlert from "../components/SendMessageAlert";
+// import SendMessageAlert from "../components/SendMessageAlert";
 import ContactForm from "../components/ContactForm";
+import { ToastContainer, toast } from "react-toastify";
+
 
 function Contact() {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [successMessage, setSuccessMessage] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  // const [successMessage, setSuccessMessage] = useState("");
 
   const handleInputChange = (event) => {
     const { id, value } = event.target;
@@ -14,16 +20,38 @@ function Contact() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Form submitted!");
+    // console.log("Form submitted!");
 
-    setSuccessMessage("Message sent successfully!");
+    if (formData.name && formData.email && formData.message) {
+      toast.success("Message sent successfully!", {
+        position: "top-center",
+        autoClose: 1000, 
+        hideProgressBar: true, 
+        closeOnClick: false, 
+        pauseOnHover: false, 
+        draggable: false,
+        theme: "colored",
+      });
+    } else {
+      toast.error("Please fill out all fields!", {
+        position: "top-center",
+        autoClose: 1000, 
+        hideProgressBar: true, 
+        closeOnClick: false, 
+        pauseOnHover: false, 
+        draggable: false, 
+        theme: "colored",
+      });
+    }
+
+    // setSuccessMessage("Message sent successfully!");
     setFormData({ name: "", email: "", message: "" });
-    setTimeout(() => setSuccessMessage(""), 3000);
+    // setTimeout(() => setSuccessMessage(""), 3000);
   };
 
   return (
-    <div className="bg-[#FAFAF5] min-h-screen flex flex-col items-center relative">
-      <SendMessageAlert message={successMessage} />
+    <div className="min-h-screen flex flex-col items-center relative">
+      {/* <SendMessageAlert message={successMessage} /> */}
       <main className="container mx-auto flex flex-col items-center px-40 mt-28">
         <GetInTouchSection />
         <div className="bg-light w-full max-w-[800px] p-12 rounded-[25px] mb-40 shadow-sm">
@@ -37,6 +65,7 @@ function Contact() {
           />
         </div>
       </main>
+      <ToastContainer className="w-[30%] text-[1.4rem]" />
     </div>
   );
 }

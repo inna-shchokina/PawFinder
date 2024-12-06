@@ -6,42 +6,73 @@ const questionnaireSchema = new mongoose.Schema({
     ref: 'User',
     required: true
   },
-  preferredAnimalType: {
+  
+  housingSituation: {
     type: String,
-    enum: ['cat', 'dog', 'both'],
+    enum: [
+      'apartment_shared_entrance',
+      'apartment_separate_entrance',
+      'house',
+      'mostly_outdoors'
+    ],
     required: true
   },
-  preferredAgeRange: {
-    min: {
-      type: Number,
+
+  dailyAloneHours: {
+    type: Number,
+    required: true
+  },
+
+  workplaceAccommodation: {
+    type: String,
+    enum: ['yes', 'no', 'not_necessary'],
+    required: true
+  },
+
+  householdComposition: {
+    type: String,
+    required: true
+  },
+
+  hasPetExperience: {
+    type: Boolean,
+    required: true
+  },
+
+  currentPets: {
+    hasPets: {
+      type: Boolean,
       required: true
     },
-    max: {
-      type: Number,
+    petDetails: {
+      type: String,
+      required: function() { 
+        return this.currentPets.hasPets === true;
+      }
+    }
+  },
+
+  previousAdoption: {
+    hasAdopted: {
+      type: Boolean,
       required: true
     }
   },
-  homeType: {
+
+  petSurrender: {
+    hasSurrendered: {
+      type: Boolean,
+      required: true
+    }
+  },
+
+  additionalInformation: {
     type: String,
-    enum: ['apartment', 'house', 'house_with_yard'],
-    required: true
-  },
-  hasChildren: {
-    type: Boolean,
-    required: true
-  },
-  hasOtherPets: {
-    type: Boolean,
-    required: true
-  },
-  hoursHome: {
-    type: Number,
-    required: true
+    required: false
   }
 }, {
-  collection: 'Questionnaires',
-  versionKey: false,
-  timestamps: true
+  timestamps: true,
+  versionKey: false
 });
 
 export default mongoose.model('Questionnaire', questionnaireSchema);

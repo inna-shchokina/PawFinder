@@ -1,0 +1,29 @@
+{
+  "ownerId": "67408fae42939cf8dfa1e82b",
+  "name": "Sage",
+  "animalType": "cat",
+  "breed": "Domestic Short Hair",
+  "age": 2,
+  "gender": "female",
+  "description": "wise and calming",
+  "petStory": "In a cozy Munich shelter, Sage, a sleek two-year-old black cat with a glint of wisdom in her golden eyes, balanced her playful energy with a calm, knowing demeanor. She loved chasing ribbons and leaping for toys, but between games, she would quietly perch by the window, as if contemplating the world. Wise yet spirited, Sage was waiting for a special home where her playful heart and thoughtful gaze could bring warmth and joy to a family ready to embrace her unique charm.",
+  "location": "Munich, Germany",
+  "adopted": false,
+  "vaccinated": true,
+  "neutered": true,
+  "microchipped": false,
+  "sociableWithOtherPets": true,
+  "sociableWithKids": true,
+  "pictures": [
+    "https://sogolmofrad.design/cats/cat6/cat_6.1.jpg",
+    "https://sogolmofrad.design/cats/cat6/cat_6.2.jpg",
+    "https://sogolmofrad.design/cats/cat6/cat_6.3.jpg",
+    "https://sogolmofrad.design/cats/cat6/cat_6.4.jpg",
+    "https://sogolmofrad.design/cats/cat6/cat_6.5.jpg"
+  ],
+  "size": "medium",
+  "hasPark": false,
+  "livesIndoors": true,
+  "specialNeeds": false,
+  "healthConditions": []
+}
