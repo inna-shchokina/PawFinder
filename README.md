@@ -56,7 +56,7 @@
 <br>
 <a href="https://github.com/inna-shchokina/PawFinder/blob/main/Screens_pawfinder/PawFinder-7.jpg?raw=true" target="_blank" rel="noopener noreferrer">View Contact us</a>
 <br>
-<a href="https://github.com/inna-shchokina/PawFinder/blob/main/Screens_pawfinder/PawFinder-8.jpg?raw=true" target="_blank" rel="noopener noreferrer">View Login form</a>
+<a href="https://github.com/inna-shchokina/PawFinder/blob/main/Screens_pawfinder/PawFinder-8.1.jpg?raw=true" target="_blank" rel="noopener noreferrer">View Login form</a>
 <br>
 <a href="https://github.com/inna-shchokina/PawFinder/blob/main/Screens_pawfinder/PawFinder-9.jpg?raw=true" target="_blank" rel="noopener noreferrer">View Sign up Form</a>
 <br>
