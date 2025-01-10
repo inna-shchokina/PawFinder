@@ -90,7 +90,7 @@ function Registration() {
   return (
     <main>
       <div className="bg-light w-[80%] md:w-[50%] my-[10rem] mx-auto p-[8rem] flex flex-col gap-[5rem] items-center rounded-[5rem] shadow-sm">
-      <h2 className="text-dark text-[22px] font-semibold -mt-4 text-center mb-6">Create your account</h2>
+      <h2 className="text-dark text-[24px] font-bold -mt-4 text-center mb-6">Create your account</h2>
         <form
           className="registerForm flex flex-col gap-[3rem] w-[100%] mx-auto text-[1.6rem]"
           onSubmit={handleSubmit}

@@ -37,7 +37,7 @@ function Login() {
   return (
     <main>
       <div className="bg-light w-[80%] md:w-[50%] my-[10rem] mx-auto p-[8rem] flex flex-col gap-[5rem] items-center rounded-[5rem] shadow-sm">
-      <h2 className="text-dark text-[22px] font-semibold -mt-4 text-center mb-6">
+      <h2 className="text-dark text-[24px] font-bold -mt-4 text-center mb-6">
           Please enter your credentials
         </h2>
         <form
@@ -104,7 +104,7 @@ function Login() {
   </button>
 </div>
         </form>
-        <h2 className="text-[2rem] font-semibold">or</h2>
+        <h2 className="text-[24px] font-semibold">or</h2>
         <button className="btn flex items-center gap-[1rem] bg-white py-[1rem] px-[2rem] text-[14px] font-medium rounded-[4rem] hover:bg-light hover:border-2 hover:border-dark -mt-6">
           <span>
             <FcGoogle className="text-[2rem]" />

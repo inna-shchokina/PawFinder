@@ -157,7 +157,7 @@ function Questionare() {
 
   return (
     <div className="queContainer absolute -top-[10rem] left-[25%] bg-light w-[50%]  mx-auto p-[8rem] flex flex-col gap-[5rem] items-center rounded-[5rem] shadow-sm">
-       <h2 className="text-dark text-[22px] font-semibold -mt-4 text-center mb-6">
+       <h2 className="text-dark text-[24px] font-bold -mt-4 text-center mb-6">
         Please Fill out the form below
       </h2>
       <form
