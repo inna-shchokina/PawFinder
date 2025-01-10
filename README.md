@@ -50,19 +50,19 @@
 <br>
 <a href="https://github.com/inna-shchokina/PawFinder/blob/main/Screens_pawfinder/PawFinder-4.jpg?raw=true" target="_blank" rel="noopener noreferrer">View Find a Pet Page with Filter </a>
 <br>
+<a href="https://github.com/inna-shchokina/PawFinder/blob/main/Screens_pawfinder/PawFinder-11.jpg?raw=true" target="_blank" rel="noopener noreferrer">View Find a Pet Page with a score</a>
+<br>
 <a href="https://github.com/inna-shchokina/PawFinder/blob/main/Screens_pawfinder/PawFinder-5.jpg?raw=true" target="_blank" rel="noopener noreferrer">View Partners Page</a>
 <br>
 <a href="https://github.com/inna-shchokina/PawFinder/blob/main/Screens_pawfinder/PawFinder-6.jpg?raw=true" target="_blank" rel="noopener noreferrer">View Shelter page</a>
 <br>
 <a href="https://github.com/inna-shchokina/PawFinder/blob/main/Screens_pawfinder/PawFinder-7.jpg?raw=true" target="_blank" rel="noopener noreferrer">View Contact us</a>
 <br>
-<a href="https://github.com/inna-shchokina/PawFinder/blob/main/Screens_pawfinder/PawFinder-8.1.jpg?raw=true" target="_blank" rel="noopener noreferrer">View Login form</a>
+<a href="https://github.com/inna-shchokina/PawFinder/blob/main/Screens_pawfinder/PawFinder-8.jpg?raw=true" target="_blank" rel="noopener noreferrer">View Login form</a>
 <br>
 <a href="https://github.com/inna-shchokina/PawFinder/blob/main/Screens_pawfinder/PawFinder-9.jpg?raw=true" target="_blank" rel="noopener noreferrer">View Sign up Form</a>
 <br>
 <a href="https://github.com/inna-shchokina/PawFinder/blob/main/Screens_pawfinder/PawFinder-10.jpg?raw=true" target="_blank" rel="noopener noreferrer">View Questionnaire</a>
-<br>
-<a href="https://github.com/inna-shchokina/PawFinder/blob/main/Screens_pawfinder/PawFinder-11.jpg?raw=true" target="_blank" rel="noopener noreferrer">View Find a Pet Page with a score</a>
 <br>
 <a href="https://github.com/inna-shchokina/PawFinder/blob/main/Screens_pawfinder/PawFinder-12.jpg?raw=true" target="_blank" rel="noopener noreferrer">View My Recommendations</a>
 <br>
