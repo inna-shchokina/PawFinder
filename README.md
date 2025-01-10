@@ -26,7 +26,7 @@
 ### 🧑‍💻 Technologies Used
 
 #### Frontend: 
-- **React.js**
+- **React**
 - **HTML5**
 - **Tailwind CSS**
 
