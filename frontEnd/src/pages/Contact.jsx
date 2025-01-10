@@ -54,7 +54,7 @@ function Contact() {
       {/* <SendMessageAlert message={successMessage} /> */}
       <main className="container mx-auto flex flex-col items-center px-40 mt-28">
         <GetInTouchSection />
-        <div className="bg-light w-full max-w-[800px] p-12 rounded-[25px] mb-40 shadow-sm">
+        <div className="bg-light w-full max-w-[800px] p-12 rounded-[40px] mb-40 shadow-sm">
           <h2 className="text-dark text-[22px] font-semibold mt-4 text-center mb-8">
             Contact us
           </h2>

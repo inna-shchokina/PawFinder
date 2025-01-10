@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useUserAuth } from "../contexts/UserAuthContext";
 import ApplicationPopup from "../components/ApplicationPopup";
 import Loading from "../components/Loading";
@@ -18,6 +18,7 @@ function Pet() {
   const [isPopupOpen, setIsPopupOpen] = useState(false); //Inna: I added this line
   const { user, isAuthenticated } = useUserAuth();
   const [matchLoading, setMatchLoading] = useState(true);
+  const [shelterData, setShelterData] = useState({});
   const [isFavorite, setIsFavorite] = useState(
     user?.favorites.includes(id) || false
   );
@@ -59,6 +60,15 @@ function Pet() {
           setPet(petRes.data);
           setImages(petRes.data.pictures || []);
           setCurImage(petRes.data.pictures?.[0]);
+
+          // Fetch shelter data
+        if (petRes.data.ownerId) {
+          const shelterRes = await axios.get(
+            `${import.meta.env.VITE_BACKEND_URL}/api/shelters/${petRes.data.ownerId}`
+          );
+          setShelterData(shelterRes.data);
+        }
+
         } catch (error) {
           setError(error.message);
         } finally {
@@ -178,8 +188,9 @@ function Pet() {
   const closePopup = () => setIsPopupOpen(false); //Inna: I added this line
 
   return (
-    <main className="my-[10rem] px-[4rem] py-10 flex flex-col gap-[3rem]">
-      <div className="flex flex-col items-center lg:flex-row lg:items-stretch w-full  mx-auto gap-[15rem]">
+    <div className="flex items-center justify-center min-h-screen">
+    <main className="relative left-[7%] my-[4rem] px-[4rem] py-10 flex flex-col gap-[3rem]">
+      <div className="flex flex-col items-center lg:flex-row lg:items-stretch w-full  mx-auto gap-[8rem]">
         <div className="petImages  w-[80%] lg:w-[40%]">
           <figure className="w-full">
             <img src={curImage} alt="dog" className="w-full rounded-[5rem]" />
@@ -190,7 +201,7 @@ function Pet() {
                 src={img}
                 alt={pet.name}
                 key={img}
-                className="w-[7.5rem] h-[7.5rem] md:w-[10rem] md:h-[10rem] mt-[8rem] rounded-[1.5rem]"
+                className="w-[7.5rem] h-[7.5rem] md:w-[10rem] md:h-[10rem] mt-[3rem] rounded-[1.5rem]"
                 onClick={(e) => handleCurImage(e.target)}
               />
             ))}
@@ -198,38 +209,76 @@ function Pet() {
         </div>
         <div className="dogInfo flex flex-col justify-between w-[80%] lg:w-[40%] gap-[3rem] lg:gap-0">
           <div className="flex flex-col gap-[1rem] ">
-            <h2 className="text-[4rem] font-bold">{pet.name}</h2>
-            <p className="text-[2rem]">{pet.breed}</p>
-            <p className="text-[2rem]">
-              {pet.gender} 🐾 {calculateAge(pet.age)} 🐾 {pet.size}
+            <h2 className="text-[4rem] uppercase font-black">{pet.name}</h2>
+            <p className="text-[1.6rem]">{pet.breed}</p>
+            <p className="text-[1.6rem]">
+              {pet.gender} • {calculateAge(pet.age)} • {pet.size}
             </p>
-            <p className="text-[2rem]">{pet.location}</p>
+            <p className="text-[1.6rem]">
+            <strong>Shelter:</strong>{" "}
+              {shelterData ? (
+                <Link
+                  to={`/shelters/${pet.ownerId}`}
+                  className="text-[#8D9E29] hover:underline font-semibold"
+                >
+                  {shelterData.companyName}
+                </Link>
+              ) : (
+                <span className="text-gray-500">Loading shelter...</span>
+              )}
+            </p>
           </div>
-          <div className="w-full h-[1px] bg-slate-700"></div>
+          <div className="w-full h-[1px] bg-gray-300 -mt-8"></div>
           <div className="flex flex-col gap-[1rem]">
-            <h3 className="text-[2rem] font-bold uppercase">About Me</h3>
-            <div className="text-[2rem] flex flex-col gap-[1rem]">
-              <p className="flex gap-[5rem]">
-                <span>
-                  {pet.vaccinated ? "✔️ Vaccinated" : "❌ Vaccinated"}
-                </span>
-                <span>{pet.neutured ? "✔️ Neutured" : "❌ Neutuered"}</span>
-              </p>
-              <p className="flex gap-[6.7rem]">
-                <span>
-                  {pet.microchipped ? "✔️ Microchip" : "❌ Microchip"}
-                </span>
-                <span>
-                  {pet.sociableWithOtherPets
-                    ? "✔️ Friendly with other pets"
-                    : "❌ Friendly with other pets"}
-                </span>
-              </p>
+            <h3 className="text-[2rem] font-bold uppercase -mt-8 mb-2">About Me</h3>
+            <div className="text-[1.6rem] font-semibold flex flex-col gap-[1rem]">
+            <p className="flex gap-[5.3rem]">
+  <span className="flex items-center gap-3">
+    <img
+      src={pet.vaccinated ? "/images/Check_circle.png" : "/images/no_circle.png"}
+      alt={pet.vaccinated ? "Vaccinated" : "Not Vaccinated"}
+      className="w-10 h-10"
+    />
+    Vaccinated
+  </span>
+  <span className="flex items-center gap-3">
+    <img
+      src={pet.neutured ? "/images/Check_circle.png" : "/images/no_circle.png"}
+      alt={pet.neutured ? "Neutured" : "Not Neutured"}
+      className="w-10 h-10"
+    />
+    Neutured
+  </span>
+</p>
+<p className="flex gap-[6.7rem]">
+  <span className="flex items-center gap-3">
+    <img
+      src={pet.microchipped ? "/images/Check_circle.png" : "/images/no_circle.png"}
+      alt={pet.microchipped ? "Microchipped" : "Not Microchipped"}
+      className="w-10 h-10"
+    />
+    Microchip
+  </span>
+  <span className="flex items-center gap-3">
+    <img
+      src={
+        pet.sociableWithOtherPets ? "/images/Check_circle.png" : "/images/no_circle.png"
+      }
+      alt={
+        pet.sociableWithOtherPets
+          ? "Friendly with other pets"
+          : "Not friendly with other pets"
+      }
+      className="w-10 h-10"
+    />
+    Friendly with other pets
+  </span>
+</p>
             </div>
           </div>
-          <div className="w-full h-[1px] bg-slate-700"></div>
+          <div className="w-full h-[1px] bg-gray-300 -mt-8"></div>
           <div className="dogStory">
-            <h3 className="text-[2rem] font-bold uppercase">My Story</h3>
+            <h3 className="text-[2rem] font-bold uppercase mb-2 -mt-8">My Story</h3>
             <p className="text-justify text-[1.6rem]">
               {pet.petStory.split("<br/>")[0]} <br />{" "}
               {pet.petStory.split("<br/>")[1]}
@@ -266,7 +315,7 @@ function Pet() {
         {/*Inna: I added this line*/}
       </div>
       {user?.userId && (
-        <div className="matchDetails w-full rounded-[5rem] bg-[#E7E7D6] py-[3rem] px-[5rem]">
+        <div className="matchDetails w-[1170px] rounded-[3rem] bg-[#E7E7D6] py-[3rem] px-[5rem]">
           <h3 className="text-[2rem] font-bold uppercase">Match Details</h3>
           {matchLoading ? (
             <p className="text-justify text-[1.6rem]">
@@ -281,6 +330,7 @@ function Pet() {
       )}
       <ToastContainer className="text-[1.4rem w-[30%]" />
     </main>
+    </div>
   );
 }
 

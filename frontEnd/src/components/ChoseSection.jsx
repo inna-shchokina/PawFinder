@@ -9,7 +9,7 @@ function ChoseSection() {
         </h2>
         <div className="flex flex-col lg:flex-row gap-[5rem] ">
           <Link to="/pets?type=cat">
-            <figure className="w-[30rem] md:w-[50rem]">
+            <figure className="w-[25rem] md:w-[45rem]">
               <img
                 src="/images/Cat_button.png"
                 alt="kitty"
@@ -18,7 +18,7 @@ function ChoseSection() {
             </figure>
           </Link>
           <Link to="/pets?type=dog">
-            <figure className="w-[30rem] md:w-[50rem]">
+            <figure className="w-[25rem] md:w-[45rem]">
               <img
                 src="/images/Dogg_button.png"
                 alt="Doggy"

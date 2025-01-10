@@ -71,14 +71,14 @@ function Navbar() {
         {isAuthenticated ? (
           <button
             onClick={handleLogout}
-            className="btn signup bg-dark px-[3rem] py-[5px] text-white rounded-[2.5rem]"
+            className="btn signup bg-dark px-[3rem] py-[5px] text-[1.4rem] text-white rounded-[2.5rem]"
           >
             Logout
           </button>
         ) : (
           <Link
             to="/register"
-            className="btn signup bg-dark text-center  w-[10rem] md:w-[inherit] md:px-[3rem] py-[5px] text-white rounded-[2.5rem]"
+            className="btn signup bg-dark text-center text-[15.5px] w-[10rem] md:w-[inherit] md:px-[3rem] py-[5px] text-white font-medium rounded-[2.5rem]"
           >
             Sign up
           </Link>

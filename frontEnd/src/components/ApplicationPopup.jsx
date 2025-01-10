@@ -71,7 +71,7 @@ function ApplicationPopup({ pet, onClose }) {
     <div className="fixed inset-0 flex items-center justify-center bg-dark bg-opacity-50 z-50">
       <div
         className="relative bg-light w-[80%] md:w-[40%] my-[5rem] mx-auto p-[4rem] flex flex-col items-center 
-      rounded-[5rem] shadow-2xl max-h-[90vh] overflow-y-auto"
+      rounded-[5rem] shadow-sm max-h-[90vh] overflow-y-auto"
       >
         <button
           onClick={onClose}
@@ -81,47 +81,84 @@ function ApplicationPopup({ pet, onClose }) {
           ✕
         </button>
 
-        <h2 className="text-[3rem] font-bold mb-4">Adoption Form</h2>
-        <p className="text-[14px] text-dark mb-16">
+        <h2 className="text-[24px] font-bold mt-8 mb-4">Adoption Form</h2>
+        <p className="text-[15px] text-dark mb-24">
           Leave your information and we will contact you
         </p>
         <form
           onSubmit={handleSubmit}
           className="flex flex-col gap-4 w-full items-center"
         >
+          {/* Name Input */}
+        <div className="w-full max-w-[400px]">
+          <label
+            htmlFor="name"
+            className="ml-4 block text-dark font-bold text-[14px] mb-2"
+          >
+            Your Name
+          </label>
           <input
             type="text"
+            id="name"
             name="name"
-            placeholder="Your Name"
+            placeholder="Enter your name"
             value={formData.name}
             onChange={handleChange}
-            className="border-b-2 border-dark text-[16px] text-dark bg-transparent border-dashed 
-            py-[1rem] max-w-[400px] min-w-[300px] focus:outline-none focus:border-red mb-6"
+            className="w-full px-8 py-4 border border-dark bg-[#FAFAF5] text-[16px] font-normal text-dark 
+            placeholder:text-[#B1B5B7] placeholder:font-light rounded-full focus:border-[#809309] 
+            focus:text-dark focus:ring-0 focus:outline-none focus:border-[2px] transition duration-300 mb-6 h-[46px]"
           />
+        </div>
+
+         {/* Email Input */}
+        <div className="w-full max-w-[400px]">
+          <label
+            htmlFor="email"
+            className="ml-4 block text-dark font-bold text-[14px] mb-2"
+          >
+            Your Email
+          </label>
           <input
             type="email"
+            id="email"
             name="email"
-            placeholder="Your Email"
+            placeholder="Enter your email"
             value={formData.email}
             onChange={handleChange}
-            className="border-b-2 border-dark text-[16px] text-dark bg-transparent border-dashed 
-            py-[1rem] max-w-[400px] min-w-[300px] focus:outline-none focus:border-red mb-14"
+            className="w-full px-8 py-4 border border-dark bg-[#FAFAF5] text-[16px] font-normal text-dark 
+            placeholder:text-[#B1B5B7] placeholder:font-light rounded-full focus:border-[#809309] 
+            focus:text-dark focus:ring-0 focus:outline-none focus:border-[2px] transition duration-300 mb-6 h-[46px]"
           />
+        </div>
+
+          {/* Message Textarea */}
+        <div className="w-full max-w-[400px]">
+          <label
+            htmlFor="message"
+            className="ml-4 block text-dark font-bold text-[14px] mb-2"
+          >
+            Leave a message
+          </label>
           <textarea
+            id="message"
             name="message"
             placeholder="Leave a message"
             value={formData.message}
             onChange={handleChange}
-            className="border-2 border-dark text-[16px] text-[#505865] bg-transparent border-dashed px-4 py-4
-            h-[150px] mb-10 max-w-[400px] min-w-[300px] rounded-3xl focus:outline-none focus:border-red"
+            className="w-full px-8 py-4 border border-dark bg-[#FAFAF5] text-[16px] font-normal text-dark 
+            placeholder:text-[#B1B5B7] placeholder:font-light rounded-[24px] focus:border-[#809309] 
+            focus:text-dark focus:ring-0 focus:outline-none focus:border-[2px] transition duration-300 mb-10 h-[150px]"
           />
+        </div>
+        <div className="flex justify-center items-center">
           <button
             type="submit"
-            className="text-white bg-red text-[14px] w-full max-w-[200px] py-3 font-medium rounded-full 
-            transition hover:bg-dark mb-8"
+            className="bg-dark text-white text-[14px] w-[200px] py-4 font-medium rounded-full 
+    hover:bg-[#8D9F19] transition"
           >
             Send application
           </button>
+          </div>
         </form>
       </div>
       <ToastContainer className="text-[1.4rem w-[30%]" />

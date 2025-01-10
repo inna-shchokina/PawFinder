@@ -156,24 +156,28 @@ function Questionare() {
   }
 
   return (
-    <div className="queContainer absolute -top-[10rem] left-[25%] bg-light w-[50%]  mx-auto p-[8rem] flex flex-col gap-[5rem] items-center rounded-[10rem] shadow-2xl">
-      {/* <button
-        className="text-[1.6rem] absolute top-[5rem] right-[10rem]"
-        onClick={handleClose}
-      >
-        X
-      </button> */}
-      <h2 className="text-[2.4rem] font-bold">
+    <div className="queContainer absolute -top-[10rem] left-[25%] bg-light w-[50%]  mx-auto p-[8rem] flex flex-col gap-[5rem] items-center rounded-[5rem] shadow-sm">
+       <h2 className="text-dark text-[22px] font-semibold -mt-4 text-center mb-6">
         Please Fill out the form below
       </h2>
       <form
-        className="questionareForm flex flex-col gap-[5rem] w-[60%] mx-auto text-[1.6rem]"
+        className="questionareForm flex flex-col gap-[3rem] -mt-6 w-[80%] mx-auto text-[1.6rem]"
         onSubmit={handleSubmit}
       >
         <div className="inputGroup flex flex-col gap-[1.5rem]">
           <label htmlFor="housing">Please Select Your Housing Situation</label>
           <select
-            className="text-[1.4rem] border-b-2 border-dark text-dark bg-transparent border-dashed py-[1rem]"
+              className="w-full px-8 py-4 border border-dark bg-[#FAFAF5] text-[16px] font-normal text-dark 
+              placeholder:text-[#B1B5B7] placeholder:font-light rounded-full focus:border-[#809309] 
+              focus:text-dark focus:ring-0 focus:outline-none focus:border-[2px] transition duration-300 mb-8 h-[46px]"
+              style={{
+                appearance: 'none', 
+                backgroundColor: '#FAFAF5', 
+                backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path d="M5.5 7l4.5 5 4.5-5h-9z"/></svg>')`,
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'right 20px center', 
+                backgroundSize: '16px',
+                 }}
             value={housingSituation}
             onChange={(e) =>
               localDispatch({ type: "setHousing", payload: e.target.value })
@@ -195,7 +199,9 @@ function Questionare() {
             How many hours in a day the pet would be alone?
           </label>
           <input
-            className="border-b-2 border-dark text-dark bg-transparent border-dashed py-[1rem]"
+            className="w-full px-8 py-4 border border-dark bg-[#FAFAF5] text-[16px] font-normal text-dark 
+            placeholder:text-[#B1B5B7] placeholder:font-light rounded-full focus:border-[#809309] 
+            focus:text-dark focus:ring-0 focus:outline-none focus:border-[2px] transition duration-300 mb-8 h-[46px]"
             type="number"
             placeholder="Please enter a number"
             value={dailyAloneHours}
@@ -211,7 +217,17 @@ function Questionare() {
             Can you take your pet to your work place?
           </label>
           <select
-            className="text-[1.4rem] border-b-2 border-dark text-dark bg-transparent border-dashed py-[1rem]"
+            className="w-full px-8 py-4 border border-dark bg-[#FAFAF5] text-[16px] font-normal text-dark 
+            placeholder:text-[#B1B5B7] placeholder:font-light rounded-full focus:border-[#809309] 
+            focus:text-dark focus:ring-0 focus:outline-none focus:border-[2px] transition duration-300 mb-8 h-[46px]"
+            style={{
+              appearance: 'none', 
+                backgroundColor: '#FAFAF5', 
+                backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path d="M5.5 7l4.5 5 4.5-5h-9z"/></svg>')`,
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'right 20px center', 
+                backgroundSize: '16px',
+            }}
             value={workplaceAccommodation}
             onChange={(e) =>
               localDispatch({
@@ -233,7 +249,9 @@ function Questionare() {
             including their ages.
           </label>
           <input
-            className="border-b-2 border-dark text-dark bg-transparent border-dashed py-[1rem]"
+            className="w-full px-8 py-4 border border-dark bg-[#FAFAF5] text-[16px] font-normal text-dark 
+            placeholder:text-[#B1B5B7] placeholder:font-light rounded-full focus:border-[#809309] 
+            focus:text-dark focus:ring-0 focus:outline-none focus:border-[2px] transition duration-300 mb-8 h-[46px]"
             type="text"
             placeholder="Please describe your household"
             value={householdComposition}
@@ -249,7 +267,17 @@ function Questionare() {
             Do you Currenctly own any pets?
           </label>
           <select
-            className="text-[1.4rem] border-b-2 border-dark text-dark bg-transparent border-dashed py-[1rem]"
+            className="w-full px-8 py-4 border border-dark bg-[#FAFAF5] text-[16px] font-normal text-dark 
+            placeholder:text-[#B1B5B7] placeholder:font-light rounded-full focus:border-[#809309] 
+            focus:text-dark focus:ring-0 focus:outline-none focus:border-[2px] transition duration-300 mb-8 h-[46px]"
+            style={{
+              appearance: 'none', 
+                backgroundColor: '#FAFAF5', 
+                backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path d="M5.5 7l4.5 5 4.5-5h-9z"/></svg>')`,
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'right 20px center', 
+                backgroundSize: '16px',
+            }}
             value={
               hasPetExperience ? "yes" : hasPetExperience === false ? "no" : ""
             }
@@ -272,7 +300,17 @@ function Questionare() {
               What type of pets do you currently have?
             </label>
             <select
-              className="text-[1.4rem] border-b-2 border-dark text-dark bg-transparent border-dashed py-[1rem]"
+              className="w-full px-8 py-4 border border-dark bg-[#FAFAF5] text-[16px] font-normal text-dark 
+              placeholder:text-[#B1B5B7] placeholder:font-light rounded-full focus:border-[#809309] 
+              focus:text-dark focus:ring-0 focus:outline-none focus:border-[2px] transition duration-300 mb-8 h-[46px]"
+              style={{
+                appearance: 'none', 
+                backgroundColor: '#FAFAF5', 
+                backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path d="M5.5 7l4.5 5 4.5-5h-9z"/></svg>')`,
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'right 20px center', 
+                backgroundSize: '16px',
+              }}
               value={currentPets.petDetails}
               onChange={(e) =>
                 localDispatch({
@@ -290,7 +328,9 @@ function Questionare() {
             {currentPets.petDetails !== "cat" &&
               currentPets.petDetails !== "dog" && (
                 <input
-                  className="border-b-2 border-dark text-dark bg-transparent border-dashed py-[1rem]"
+                  className="w-full px-8 py-4 border border-dark bg-[#FAFAF5] text-[16px] font-normal text-dark 
+            placeholder:text-[#B1B5B7] placeholder:font-light rounded-full focus:border-[#809309] 
+            focus:text-dark focus:ring-0 focus:outline-none focus:border-[2px] transition duration-300 mb-8 h-[46px]"
                   type="text"
                   placeholder="Please specify your pet"
                   value={currentPets.petDetails}
@@ -308,7 +348,17 @@ function Questionare() {
         <div className="inputGroup flex flex-col gap-[1.5rem]">
           <label htmlFor="previousAdoption">Have you ever adopt any pet?</label>
           <select
-            className="text-[1.4rem] border-b-2 border-dark text-dark bg-transparent border-dashed py-[1rem]"
+            className="w-full px-8 py-4 border border-dark bg-[#FAFAF5] text-[16px] font-normal text-dark 
+            placeholder:text-[#B1B5B7] placeholder:font-light rounded-full focus:border-[#809309] 
+            focus:text-dark focus:ring-0 focus:outline-none focus:border-[2px] transition duration-300 mb-8 h-[46px]"
+            style={{
+              appearance: 'none', 
+                backgroundColor: '#FAFAF5', 
+                backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path d="M5.5 7l4.5 5 4.5-5h-9z"/></svg>')`,
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'right 20px center', 
+                backgroundSize: '16px',
+            }}
             value={
               previousAdoption.hasAdopted === true
                 ? "yes"
@@ -334,7 +384,17 @@ function Questionare() {
             Have you ever surrendered any pet?
           </label>
           <select
-            className="text-[1.4rem] border-b-2 border-dark text-dark bg-transparent border-dashed py-[1rem]"
+            className="w-full px-8 py-4 border border-dark bg-[#FAFAF5] text-[16px] font-normal text-dark 
+            placeholder:text-[#B1B5B7] placeholder:font-light rounded-full focus:border-[#809309] 
+            focus:text-dark focus:ring-0 focus:outline-none focus:border-[2px] transition duration-300 mb-8 h-[46px]"
+            style={{
+              appearance: 'none', 
+              backgroundColor: '#FAFAF5', 
+              backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="black"><path d="M5.5 7l4.5 5 4.5-5h-9z"/></svg>')`,
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'right 20px center', 
+              backgroundSize: '16px',
+            }}
             value={
               petSurrender.hasSurrendered === true
                 ? "yes"
@@ -360,7 +420,9 @@ function Questionare() {
             Any other information we should know?
           </label>
           <textarea
-            className="border-2 border-dark text-dark bg-transparent border-dashed p-[0.5rem] w-full h-[12rem]"
+            className="w-full px-8 py-4 border border-dark bg-[#FAFAF5] text-[16px] font-normal text-dark 
+            placeholder:text-[#B1B5B7] placeholder:font-light rounded-[24px] focus:border-[#809309] 
+            focus:text-dark focus:ring-0 focus:outline-none focus:border-[2px] transition duration-300 mb-8 h-56"
             type="text"
             placeholder="Please Write here"
             value={additionalInformation}
@@ -373,33 +435,15 @@ function Questionare() {
             id="additionalInfo"
           />
         </div>
-        {/* <input
-          className="border-b-2 border-dark text-dark bg-transparent border-dashed py-[1rem]"
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) =>
-            dispatch({ type: "setEmail", payload: e.target.value })
-          }
-          required
-        /> */}
-        {/* <input
-          className="border-b-2 border-dark text-dark bg-transparent border-dashed py-[1rem]"
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) =>
-            dispatch({ type: "setPassword", payload: e.target.value })
-          }
-          required
-        /> */}
-
+< div className="flex justify-center items-center">
         <button
           type="submit"
-          className="text-[1.6rem] text-white bg-red w-[50%] py-[1rem] rounded-[4rem] mx-auto"
+          className="bg-dark text-white text-[14px] w-full max-w-[200px] py-4 font-medium rounded-full 
+    hover:bg-[#8D9F19] transition"
         >
           Submit
         </button>
+        </div>
       </form>
       <ToastContainer className="text-[1.4rem] w-[30%]" />
     </div>

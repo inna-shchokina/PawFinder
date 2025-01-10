@@ -89,58 +89,105 @@ function Registration() {
 
   return (
     <main>
-      <div className="bg-light  w-[80%] md:w-[50%] my-[10rem] mx-auto p-[8rem] flex flex-col gap-[5rem] items-center rounded-[10rem] shadow-2xl">
-        <h2 className="text-[2.4rem] font-bold">Create your account</h2>
+      <div className="bg-light w-[80%] md:w-[50%] my-[10rem] mx-auto p-[8rem] flex flex-col gap-[5rem] items-center rounded-[5rem] shadow-sm">
+      <h2 className="text-dark text-[22px] font-semibold -mt-4 text-center mb-6">Create your account</h2>
         <form
-          className="registerForm flex flex-col gap-[5rem] w-[70%] mx-auto text-[1.6rem]"
+          className="registerForm flex flex-col gap-[3rem] w-[100%] mx-auto text-[1.6rem]"
           onSubmit={handleSubmit}
         >
-          <input
-            className="border-b-2 border-dark text-dark bg-transparent border-dashed py-[1rem]"
-            type="text"
-            placeholder="Full Name"
-            value={fullName}
-            onChange={(e) =>
-              dispatch({ type: "setFullName", payload: e.target.value })
-            }
-            required
-          />
+          {/* Full Name Input */}
+        <div>
+          <label
+            htmlFor="fullName"
+            className="ml-8 block text-dark font-bold text-[14px] mb-2"
+          >
+            Full Name
+          </label>
+          <div>
+            <input
+              type="text"
+              id="fullName"
+              value={fullName}
+              onChange={(e) =>
+                dispatch({ type: "setFullName", payload: e.target.value })
+              }
+              placeholder="Enter your full name"
+              className="w-full px-8 py-4 border border-dark bg-[#FAFAF5] text-[16px] font-normal text-dark 
+              placeholder:text-[#B1B5B7] placeholder:font-light rounded-full focus:border-[#809309] 
+              focus:text-dark focus:ring-0 focus:outline-none focus:border-[2px] transition duration-300 mb-8 h-[46px]"
+              required
+            />
+          </div>
+        </div>
 
-          <input
-            className="border-b-2 border-dark text-dark bg-transparent border-dashed py-[1rem]"
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) =>
-              dispatch({ type: "setEmail", payload: e.target.value })
-            }
-            required
-          />
-          <input
-            className="border-b-2 border-dark text-dark bg-transparent border-dashed py-[1rem]"
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) =>
-              dispatch({ type: "setPassword", payload: e.target.value })
-            }
-            required
-          />
+          {/* Email Input */}
+        <div>
+          <label
+            htmlFor="email"
+            className="ml-8 block text-dark font-bold text-[14px] mb-2"
+          >
+            Email
+          </label>
+          <div>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) =>
+                dispatch({ type: "setEmail", payload: e.target.value })
+              }
+              placeholder="Enter your email"
+              className="w-full px-8 py-4 border border-dark bg-[#FAFAF5] text-[16px] font-normal text-dark 
+              placeholder:text-[#B1B5B7] placeholder:font-light rounded-full focus:border-[#809309] 
+              focus:text-dark focus:ring-0 focus:outline-none focus:border-[2px] transition duration-300 mb-8 h-[46px]"
+              required
+            />
+          </div>
+        </div>
 
+          {/* Password Input */}
+        <div>
+          <label
+            htmlFor="password"
+            className="ml-8 block text-dark font-bold text-[14px] mb-2"
+          >
+            Password
+          </label>
+          <div>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) =>
+                dispatch({ type: "setPassword", payload: e.target.value })
+              }
+              placeholder="Enter your password"
+              className="w-full px-8 py-4 border border-dark bg-[#FAFAF5] text-[16px] font-normal text-dark 
+              placeholder:text-[#B1B5B7] placeholder:font-light rounded-full focus:border-[#809309] 
+              focus:text-dark focus:ring-0 focus:outline-none focus:border-[2px] transition duration-300 mb-8 h-[46px]"
+              required
+            />
+          </div>
+        </div>
+
+          {/* Submit Button */}
+        <div className="flex justify-center items-center">
           <button
             type="submit"
-            className="text-[1.6rem] text-white bg-red w-[50%] py-[1rem] rounded-[4rem] mx-auto"
+            className="bg-dark text-white text-[14px] w-full max-w-[200px] py-4 font-medium rounded-full 
+            hover:bg-[#8D9F19] transition"
           >
             Sign up
           </button>
+        </div>
         </form>
-        <h2 className="text-[2.4rem] font-bold">Or</h2>
+        <h2 className="text-[2rem] font-semibold">or</h2>
         <button
-          className="btn flex items-center gap-[1rem] bg-white py-[1rem] px-[2rem] text-[1.6rem] rounded-[1.5rem] hover:bg-light hover:border-2 hover:border-dark"
+          className="btn flex items-center gap-[1rem] bg-white py-[1rem] px-[2rem] text-[14px] font-medium rounded-[4rem] hover:bg-light hover:border-2 hover:border-dark -mt-6"
           onClick={handleGoogleSignUp}
         >
           <span>
-            <FcGoogle className="text-[2.4rem]" />
+          <FcGoogle className="text-[2rem]" />
           </span>
           <span>Sign up with Google</span>
         </button>

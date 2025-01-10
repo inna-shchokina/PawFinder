@@ -41,8 +41,8 @@ function Shelters() {
   }
 
   return (
-    <main className="my-[2.5rem] px-[4rem] py-10">
-      <h2 className="text-[3.5rem] font-black mb-[3rem] uppercase">
+    <main className="my-[2.5rem] rounded-2xl px-[19rem] py-10">
+      <h2 className="text-[3.5rem] pl-[10px] font-black mb-[4rem] uppercase">
         Which Shelter is best for you?
       </h2>
       <div className="sheltersContainer flex flex-col gap-[3rem] items-center md:items-stretch md:gap-0 md:flex-row justify-between">
@@ -58,7 +58,7 @@ function Shelters() {
           />
         )}
 
-        <Map
+        <Map className="map-container"
           shelters={shelters}
           mapPosition={mapPosition}
           setActiveStateIndex={setActiveStateIndex}
